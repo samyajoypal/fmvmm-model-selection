@@ -1,0 +1,8 @@
+/.venv/
+/build/
+/runs/
+/validation-local/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store

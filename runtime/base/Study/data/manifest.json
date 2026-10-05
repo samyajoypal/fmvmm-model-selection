@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "accessed_date": "2026-09-13",
+  "description": "Eight frozen public datasets; labels are external evaluation only.",
+  "k_grid": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "holdout_fraction": 0.2,
+  "repeats": 5,
+  "split_seeds": {
+    "iris": [
+      2026091300,
+      2026091301,
+      2026091302,
+      2026091303,
+      2026091304
+    ],
+    "wine": [
+      2026092300,
+      2026092301,
+      2026092302,
+      2026092303,
+      2026092304
+    ],
+    "seeds": [
+      2026093300,
+      2026093301,
+      2026093302,
+      2026093303,
+      2026093304
+    ],
+    "vertebral": [
+      2026094300,
+      2026094301,
+      2026094302,
+      2026094303,
+      2026094304
+    ],
+    "glass": [
+      2026095300,
+      2026095301,
+      2026095302,
+      2026095303,
+      2026095304
+    ],
+    "wdbc": [
+      2026096300,
+      2026096301,
+      2026096302,
+      2026096303,
+      2026096304
+    ],
+    "wholesale": [
+      2026097300,
+      2026097301,
+      2026097302,
+      2026097303,
+      2026097304
+    ],
+    "faithful": [
+      2026098300,
+      2026098301,
+      2026098302,
+      2026098303,
+      2026098304
+    ]
+  },
+  "pca_max_dim": 5,
+  "auxiliary_sources": [
+    {
+      "path": "licenses/CC-BY-4.0.txt",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "licenses/R-4.5.1-COPYING",
+      "url": "https://svn.r-project.org/R/tags/R-4-5-1/COPYING",
+      "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4"
+    },
+    {
+      "path": "licenses/R-4.5.1-COPYRIGHTS",
+      "url": "https://svn.r-project.org/R/tags/R-4-5-1/doc/COPYRIGHTS",
+      "sha256": "93a225906ee6514d1482548f8945e41a5cfcbae70610f9577ac7c9a512e060f0"
+    },
+    {
+      "path": "raw/R-datasets-DESCRIPTION.in",
+      "url": "https://svn.r-project.org/R/tags/R-4-5-1/src/library/datasets/DESCRIPTION.in",
+      "sha256": "4ce77b76b57ed08343b62e548eb95cbcfcd77d111881e6262b711a56b973f6a4"
+    }
+  ],
+  "datasets": {
+    "iris": {
+      "dataset_id": "iris",
+      "n": 150,
+      "p_raw": 4,
+      "p_model": 4,
+      "feature_names": [
+        "sepal_length",
+        "sepal_width",
+        "petal_length",
+        "petal_width"
+      ],
+      "label_name": "species",
+      "label_counts": {
+        "Iris-setosa": 50,
+        "Iris-versicolor": 50,
+        "Iris-virginica": 50
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/53/iris.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/53/iris",
+      "citation": "Fisher, R. A. (1936). Iris. UCI Machine Learning Repository.",
+      "doi": "10.24432/C56C76",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/iris.zip",
+      "raw_sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+      "archive_member": "iris.data",
+      "processed_file": "processed/iris.npz",
+      "processed_sha256": "ec2d50b5b6a044d3a3d17fd1834481bf32e1b0674ac899bc735bdf9ee4311e17",
+      "X_sha256": "58280bb559506628655ae68c493688079f736a0f3142f8b526ee3983cae22030",
+      "notes": "Original iris.data release retained, including documented measurement discrepancies; bezdekIris.data is not substituted.",
+      "split_seeds": [
+        2026091300,
+        2026091301,
+        2026091302,
+        2026091303,
+        2026091304
+      ]
+    },
+    "wine": {
+      "dataset_id": "wine",
+      "n": 178,
+      "p_raw": 13,
+      "p_model": 5,
+      "feature_names": [
+        "alcohol",
+        "malic_acid",
+        "ash",
+        "alcalinity_of_ash",
+        "magnesium",
+        "total_phenols",
+        "flavanoids",
+        "nonflavanoid_phenols",
+        "proanthocyanins",
+        "color_intensity",
+        "hue",
+        "od280_od315",
+        "proline"
+      ],
+      "label_name": "cultivar",
+      "label_counts": {
+        "1": 59,
+        "2": 71,
+        "3": 48
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/109/wine.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/109/wine",
+      "citation": "Aeberhard, S., and Forina, M. (1992). Wine. UCI Machine Learning Repository.",
+      "doi": "10.24432/C5PC7J",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/wine.zip",
+      "raw_sha256": "2bae62c4481220623579d4c4fb36b55652b6b75e06e49fa1981b8198362dfdab",
+      "archive_member": "wine.data",
+      "processed_file": "processed/wine.npz",
+      "processed_sha256": "10d5da3e25c96214a8dfa7920befcb2650333e6ed311cc98a5e9d33927ca105e",
+      "X_sha256": "8edcf3903afd97c64d51e0212eb10b213f7943da650574d1c055b836c5c35d37",
+      "notes": "",
+      "split_seeds": [
+        2026092300,
+        2026092301,
+        2026092302,
+        2026092303,
+        2026092304
+      ]
+    },
+    "seeds": {
+      "dataset_id": "seeds",
+      "n": 210,
+      "p_raw": 7,
+      "p_model": 5,
+      "feature_names": [
+        "area",
+        "perimeter",
+        "compactness",
+        "kernel_length",
+        "kernel_width",
+        "asymmetry",
+        "kernel_groove_length"
+      ],
+      "label_name": "wheat_variety",
+      "label_counts": {
+        "1": 70,
+        "2": 70,
+        "3": 70
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/236/seeds.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/236/seeds",
+      "citation": "Charytanowicz, M., Niewczas, J., Kulczycki, P., Kowalski, P., and Lukasik, S. (2010). Seeds. UCI Machine Learning Repository.",
+      "doi": "10.24432/C5H30K",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/seeds.zip",
+      "raw_sha256": "5033bd71b24592fa70d9b3cc5be02332dc6d03d0b27e6655e6d553f39afab323",
+      "archive_member": "seeds_dataset.txt",
+      "processed_file": "processed/seeds.npz",
+      "processed_sha256": "a3ac38dee08220c5a836a53c01e56a3906038615808a299c57caa9829b698495",
+      "X_sha256": "b370a0d4eae52f0c3f9e082ff742b1ad3ee16ee3e0eb0dbcb76cee89814648ea",
+      "notes": "",
+      "split_seeds": [
+        2026093300,
+        2026093301,
+        2026093302,
+        2026093303,
+        2026093304
+      ]
+    },
+    "vertebral": {
+      "dataset_id": "vertebral",
+      "n": 310,
+      "p_raw": 6,
+      "p_model": 5,
+      "feature_names": [
+        "pelvic_incidence",
+        "pelvic_tilt",
+        "lumbar_lordosis_angle",
+        "sacral_slope",
+        "pelvic_radius",
+        "degree_spondylolisthesis"
+      ],
+      "label_name": "clinical_category",
+      "label_counts": {
+        "DH": 60,
+        "NO": 100,
+        "SL": 150
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/212/vertebral+column.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/212/vertebral+column",
+      "citation": "Barreto, G., and Neto, A. (2005). Vertebral Column. UCI Machine Learning Repository.",
+      "doi": "10.24432/C5K89B",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/vertebral.zip",
+      "raw_sha256": "899ed1d137ceb4c36d59fa35f3cbab39ec3b78fd3ca1fdaf2fae155459c1372f",
+      "archive_member": "column_3C.dat",
+      "processed_file": "processed/vertebral.npz",
+      "processed_sha256": "a3e044fb1645bda430f3525bdce135c2abfd9e47d5d3fd3d3ecfb050633e9780",
+      "X_sha256": "93aa58ae632838b2c67c5c5b25d8d4451562bb4ef0b471f936edb1e4458b8177",
+      "notes": "Only the three-category file is used. The two-category file contains the same observations. PCA also removes the near-redundancy among pelvic incidence, pelvic tilt and sacral slope.",
+      "split_seeds": [
+        2026094300,
+        2026094301,
+        2026094302,
+        2026094303,
+        2026094304
+      ]
+    },
+    "glass": {
+      "dataset_id": "glass",
+      "n": 214,
+      "p_raw": 9,
+      "p_model": 5,
+      "feature_names": [
+        "refractive_index",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe"
+      ],
+      "label_name": "glass_type",
+      "label_counts": {
+        "1": 70,
+        "2": 76,
+        "3": 17,
+        "5": 13,
+        "6": 9,
+        "7": 29
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [
+        "id"
+      ],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/42/glass+identification.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/42/glass+identification",
+      "citation": "German, B. (1987). Glass Identification. UCI Machine Learning Repository.",
+      "doi": "10.24432/C5WW2P",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/glass.zip",
+      "raw_sha256": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+      "archive_member": "glass.data",
+      "processed_file": "processed/glass.npz",
+      "processed_sha256": "e8c1fa05ed4a0812e7cd62a4ba36b65f1dcee8ca09952ccb9af836e20abb2df2",
+      "X_sha256": "ec3bb3cbe02e01600db223bfebc8573a269585bfbf07dd37d7e4c25ec77396f6",
+      "notes": "Six observed category codes are external labels; they do not determine the K grid.",
+      "split_seeds": [
+        2026095300,
+        2026095301,
+        2026095302,
+        2026095303,
+        2026095304
+      ]
+    },
+    "wdbc": {
+      "dataset_id": "wdbc",
+      "n": 569,
+      "p_raw": 30,
+      "p_model": 5,
+      "feature_names": [
+        "radius_mean",
+        "texture_mean",
+        "perimeter_mean",
+        "area_mean",
+        "smoothness_mean",
+        "compactness_mean",
+        "concavity_mean",
+        "concave_points_mean",
+        "symmetry_mean",
+        "fractal_dimension_mean",
+        "radius_se",
+        "texture_se",
+        "perimeter_se",
+        "area_se",
+        "smoothness_se",
+        "compactness_se",
+        "concavity_se",
+        "concave_points_se",
+        "symmetry_se",
+        "fractal_dimension_se",
+        "radius_worst",
+        "texture_worst",
+        "perimeter_worst",
+        "area_worst",
+        "smoothness_worst",
+        "compactness_worst",
+        "concavity_worst",
+        "concave_points_worst",
+        "symmetry_worst",
+        "fractal_dimension_worst"
+      ],
+      "label_name": "diagnosis",
+      "label_counts": {
+        "B": 357,
+        "M": 212
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [
+        "id"
+      ],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/17/breast+cancer+wisconsin+diagnostic.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+      "citation": "Wolberg, W., Mangasarian, O., Street, N., and Street, W. (1993). Breast Cancer Wisconsin (Diagnostic). UCI Machine Learning Repository.",
+      "doi": "10.24432/C5DW2B",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/wdbc.zip",
+      "raw_sha256": "bc154869ef13f753f9e2b5a17e248cfe1ba4b6721db7c4da9f4880e40b05d3af",
+      "archive_member": "wdbc.data",
+      "processed_file": "processed/wdbc.npz",
+      "processed_sha256": "6b061ecfde5182e4f3b21eaa5ada0ccf01991054525c888ec658156abfde8a88",
+      "X_sha256": "6b202a2072f9a0385f405a8f8605b1b06f6f36ae6d23d9cd6cbbc0974a416bc7",
+      "notes": "Thirty continuous nuclear-image features; this is WDBC, not the older Wisconsin breast-cancer data.",
+      "split_seeds": [
+        2026096300,
+        2026096301,
+        2026096302,
+        2026096303,
+        2026096304
+      ]
+    },
+    "wholesale": {
+      "dataset_id": "wholesale",
+      "n": 440,
+      "p_raw": 6,
+      "p_model": 5,
+      "feature_names": [
+        "fresh",
+        "milk",
+        "grocery",
+        "frozen",
+        "detergents_paper",
+        "delicassen"
+      ],
+      "label_name": "channel",
+      "label_counts": {
+        "1": 298,
+        "2": 142
+      },
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [
+        "channel",
+        "region"
+      ],
+      "fixed_transform": "log1p",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://archive.ics.uci.edu/static/public/292/wholesale+customers.zip",
+      "documentation_url": "https://archive.ics.uci.edu/dataset/292/wholesale+customers",
+      "citation": "Cardoso, M. (2013). Wholesale Customers. UCI Machine Learning Repository.",
+      "doi": "10.24432/C5030X",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_file": "raw/wholesale.zip",
+      "raw_sha256": "647e6a61683ed23f48c7b04e1e2be78835eca8758b32267603fc42a1479dbfb8",
+      "archive_member": "Wholesale customers data.csv",
+      "processed_file": "processed/wholesale.npz",
+      "processed_sha256": "68f2679b8b9f25551b620ce95230e101fcfe34c248f016fe7d2a852f4a0945a5",
+      "X_sha256": "bcf891b401958204d4d7a7178c4b0a78f3a6e41565ddb17472cc633ee550fb1a",
+      "notes": "Only six spending measures enter X. Channel is an external descriptive label; Region is preserved as metadata. A fixed log1p transform precedes training-only standardization/PCA.",
+      "split_seeds": [
+        2026097300,
+        2026097301,
+        2026097302,
+        2026097303,
+        2026097304
+      ]
+    },
+    "faithful": {
+      "dataset_id": "faithful",
+      "n": 272,
+      "p_raw": 2,
+      "p_model": 2,
+      "feature_names": [
+        "eruption_minutes",
+        "waiting_minutes"
+      ],
+      "label_name": null,
+      "label_counts": null,
+      "labels_used_for": "external evaluation only; never for splits, transformations, K, screening, fitting or BIC",
+      "excluded_columns": [],
+      "fixed_transform": "identity",
+      "row_policy": "all rows, original source order; no imputation, deletion, jitter or subsampling",
+      "source_url": "https://svn.r-project.org/R/tags/R-4-5-1/src/library/datasets/data/faithful.R",
+      "documentation_url": "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/faithful.html",
+      "citation": "R Core Team and contributors (R 4.5.1), datasets::faithful; source W. H\u00e4rdle, Smoothing Techniques with Implementation in S (1991).",
+      "doi": null,
+      "license": "GPL-2.0-or-GPL-3.0 (R distribution)",
+      "license_url": "https://svn.r-project.org/R/tags/R-4-5-1/doc/COPYRIGHTS",
+      "raw_file": "raw/faithful.R",
+      "raw_sha256": "3cdac44bca411deabae2904557fce2272e87c83128087d1927a5384fb8c99e4f",
+      "archive_member": null,
+      "processed_file": "processed/faithful.npz",
+      "processed_sha256": "d91f4068df7be6f694da99fc7b192050415d59a0a56ad9a8187d8fc8c8487386",
+      "X_sha256": "c1528a01fabb3e454c6e9a895d099e20295b2606b76cf1c69986b3f929578705",
+      "notes": "Unlabelled Old Faithful eruption/waiting measurements, as bundled in R 4.5.1. Rounded values are retained. Random holdouts assess interpolation of the empirical density, not temporal forecasting or independent future eruptions.",
+      "split_seeds": [
+        2026098300,
+        2026098301,
+        2026098302,
+        2026098303,
+        2026098304
+      ]
+    }
+  }
+}

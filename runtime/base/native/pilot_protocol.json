@@ -1,0 +1,249 @@
+{
+  "version": "native-em-local-validation-v3a",
+  "created_before_fits": true,
+  "purpose": "Validate actual FMVMM soft EM numerical repairs and compare selection policies; prior analytic whole-mixture backend is excluded.",
+  "settings": {
+    "em_iterations": 1200,
+    "em_tolerance": 1e-08,
+    "profile_iterations": 250,
+    "fit_deadline_seconds": 180,
+    "profile_deadline_seconds": 120,
+    "numerical_policy": {
+      "covariance_floor": 0.0001,
+      "cholesky_min": 1e-05,
+      "cholesky_max": 20.0,
+      "location_bound": 30.0,
+      "skew_coefficient_bound": 50.0,
+      "inverse_df_max": 5.0,
+      "minimum_weight": 0.0001,
+      "contamination_min": 1e-06,
+      "inverse_inflation_min": 0.0001,
+      "slash_df_min": 0.001,
+      "slash_df_max": 450.0,
+      "gh_lambda_bound": 10.0,
+      "gh_alpha_bar_min": 0.001,
+      "gh_alpha_bar_max": 200.0,
+      "gh_gst_tail_min": 0.05,
+      "gh_gst_tail_max": 50.0,
+      "gh_vg_center_margin": 0.05,
+      "gh_vg_lambda_max": 50.0,
+      "component_maxiter": 60,
+      "component_maxfun": 10000,
+      "ftol": 1e-11,
+      "gtol": 1e-06,
+      "gradient_tolerance": 0.0001,
+      "accept_tolerance": 1e-08
+    }
+  },
+  "phases": {
+    "smoke": [
+      {
+        "task_id": "smoke_l3",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L3",
+        "n": 180,
+        "p": 2,
+        "true_k": 3,
+        "fit_k": 3,
+        "separation": 4.0,
+        "truth": "heterogeneous",
+        "weights": "balanced",
+        "seed": 2867905439,
+        "data_seed": 2867905439,
+        "test_n": 1000,
+        "phase": "development"
+      }
+    ],
+    "development_l5": [
+      {
+        "task_id": "dev_l5_skew_k2",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L5",
+        "n": 300,
+        "p": 2,
+        "true_k": 2,
+        "fit_k": 2,
+        "separation": 4.0,
+        "truth": "skew_t",
+        "weights": "balanced",
+        "seed": 2218693012,
+        "data_seed": 2218693012,
+        "test_n": 1000,
+        "phase": "development"
+      },
+      {
+        "task_id": "dev_l5_overlap_k3",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L5",
+        "n": 300,
+        "p": 2,
+        "true_k": 3,
+        "fit_k": 3,
+        "separation": 2.5,
+        "truth": "heterogeneous",
+        "weights": "unequal",
+        "seed": 329308321,
+        "data_seed": 329308321,
+        "test_n": 1000,
+        "phase": "development"
+      }
+    ],
+    "development_l13": [
+      {
+        "task_id": "dev_l13_mixed_k2",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L13",
+        "n": 180,
+        "p": 2,
+        "true_k": 2,
+        "fit_k": 2,
+        "separation": 4.0,
+        "truth": "heterogeneous",
+        "weights": "balanced",
+        "seed": 2453846539,
+        "data_seed": 2453846539,
+        "test_n": 1000,
+        "phase": "development"
+      },
+      {
+        "task_id": "dev_l13_gh_k2",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L13",
+        "n": 180,
+        "p": 2,
+        "true_k": 2,
+        "fit_k": 2,
+        "separation": 4.0,
+        "truth": "gh",
+        "weights": "balanced",
+        "seed": 4155730747,
+        "data_seed": 4155730747,
+        "test_n": 1000,
+        "phase": "development"
+      }
+    ],
+    "validation_l5_k2": [
+      {
+        "task_id": "val_l5_skew_k2",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L5",
+        "n": 500,
+        "p": 2,
+        "true_k": 2,
+        "fit_k": 2,
+        "separation": 4.0,
+        "truth": "skew_t",
+        "weights": "balanced",
+        "seed": 2406354401,
+        "data_seed": 2406354401,
+        "test_n": 1000,
+        "phase": "validation"
+      }
+    ],
+    "validation_l5_k3": [
+      {
+        "task_id": "val_l5_overlap_k3",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L5",
+        "n": 500,
+        "p": 2,
+        "true_k": 3,
+        "fit_k": 3,
+        "separation": 2.5,
+        "truth": "heterogeneous",
+        "weights": "unequal",
+        "seed": 1357878125,
+        "data_seed": 1357878125,
+        "test_n": 1000,
+        "phase": "validation"
+      },
+      {
+        "task_id": "val_l5_p5_k3",
+        "kind": "simulation",
+        "tier": "native_em_local",
+        "library_id": "L5",
+        "n": 600,
+        "p": 5,
+        "true_k": 3,
+        "fit_k": 3,
+        "separation": 2.5,
+        "truth": "heterogeneous",
+        "weights": "balanced",
+        "seed": 642809093,
+        "data_seed": 642809093,
+        "test_n": 1000,
+        "phase": "validation"
+      }
+    ]
+  },
+  "reserved_validation": [
+    {
+      "task_id": "val_l13_mixed_k2",
+      "kind": "simulation",
+      "tier": "native_em_local",
+      "library_id": "L13",
+      "n": 300,
+      "p": 2,
+      "true_k": 2,
+      "fit_k": 2,
+      "separation": 4.0,
+      "truth": "heterogeneous",
+      "weights": "balanced",
+      "seed": 3997945271,
+      "data_seed": 3997945271,
+      "test_n": 1000,
+      "phase": "validation"
+    },
+    {
+      "task_id": "val_l13_gh_k2",
+      "kind": "simulation",
+      "tier": "native_em_local",
+      "library_id": "L13",
+      "n": 300,
+      "p": 2,
+      "true_k": 2,
+      "fit_k": 2,
+      "separation": 4.0,
+      "truth": "gh",
+      "weights": "balanced",
+      "seed": 1949640225,
+      "data_seed": 1949640225,
+      "test_n": 1000,
+      "phase": "validation"
+    }
+  ],
+  "validation_locked": true,
+  "development_rule": "V3 uses validated MSNC analytic and skew-t semi-analytic component scores in the same native outer EM. Domain, initializations, screen cutoff and stopping tolerances are unchanged from V2. Preserve all prior development outputs; no source edits during scientific runs. Native density stress repairs are recorded by package commit and source hashes. All mixture candidates receive the same 1200-iteration maximum (increased from400 after one V2 baseline candidate remained slow); the stopping tolerances are unchanged. Unresolved selected weighted profiles stop the comparison and remain recorded instead of supporting family exclusions.",
+  "validation_rule": "Use reserved cases only after selecting/fixing a method and policy; do not tune to validation; direct fresh pipelines versusfast_student and reference_student.",
+  "success_rule": "No invalid densities or silent failures. Selected and reference fits need explicit local convergence diagnostics. Screening should retain comparable BIC/predictive quality while saving distinct models and meaningful direct runtime relative to fast_student. A speedup solely against all assignments is insufficient.",
+  "method_notes": {
+    "student_bootstrap": "Gaussian pilot plus only K t weighted profiles and one t mixture; then K*L Student profiles. All required dependencies charged.",
+    "student_local": "Finite fixed-Student-table ordered one-family moves; no iterative q update.",
+    "profile": "Same package constrained weighted component objective/domain as in EM; finite multistart local profiles, notcertifiedglobal.",
+    "timing": "Shared operation accounting for development; independent direct timing for selected validation includes data preparation, all fitting/profile work and a checkpoint with fitted parameters and compact diagnostics. Test metrics and duplicate aggregate analysis records are outside method timing.",
+    "constraints": "Training-only whitening; bounds and floors disclosed, canonical GH parameterization and positive VG center shape gap required. These restrict the statistical target.",
+    "provenance": "Record data generator, initialization helper, full FMVMM package, runner, protocol, versions, task/settings/methods and timing mode. Only complete records with matching experiment identity can be reused; incomplete records require an explicit new output directory."
+  },
+  "validation_release": {
+    "L5": "Three previously reserved cases released on 2026-09-16 before their first fit. Method and numerical settings fixed from development.",
+    "L13": "Still locked pending GH/VG profile investigation."
+  },
+  "validation_method": "student_ranked_screen; one Student score table, shared2logn allowance, one score-ranked assignment per retained canonical model; no neighbourhood updates",
+  "validation_comparators": {
+    "validation_l5_k2": [
+      "fast_student",
+      "reference_student"
+    ],
+    "validation_l5_k3": [
+      "fast_student"
+    ]
+  },
+  "validation_gate": "All attempted full fits and selected profiles must meet diagnostics; report every failure. Primary target is attained BIC agreement within1e-4, secondary report regret within2BIC and test-log-density loss within.01perobservation. Direct total runtime againstfast_student includes all fits/profiles, initialization and fitted-output checkpoint. These three cases are a feasibility check, not a population success-rate estimate. Do not retune after validation."
+}

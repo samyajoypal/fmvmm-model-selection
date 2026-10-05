@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local environments and IDE metadata
+.venv/
+.idea/
+
+# Package build output
+build/
+dist/
+*.egg-info/
+
+# Paper/reproducibility workspaces kept outside the package release
+Paper/
+paper_project/
+paper_reproducibility_repo/
+Tests/paper_nonidentical_tests.py

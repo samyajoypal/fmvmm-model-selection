@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite these materials and the associated manuscript when using this study."
+type: software
+title: "Reproducibility materials for posterior-guided family screening for flexible multivariate mixture models"
+authors:
+  - family-names: Pal
+    given-names: Samyajoy
+  - family-names: Einbeck
+    given-names: Jochen
+version: 1.0.0
+date-released: 2026-10-05
+repository-code: "https://github.com/samyajoypal/fmvmm-model-selection"
+url: "https://github.com/samyajoypal/fmvmm-model-selection"
+abstract: "Source code, CSV datasets, fixed protocols and saved numerical results supporting the FMVMM family-screening study."
+keywords:
+  - finite mixture models
+  - model selection
+  - FMVMM
+  - reproducible research

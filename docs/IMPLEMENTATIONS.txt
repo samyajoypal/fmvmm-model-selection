@@ -1,0 +1,49 @@
+IMPLEMENTATIONS AND ATTRIBUTION
+
+All comparison rules in this repository were implemented for this study.
+They are not official software implementations supplied by the authors of
+structural EM, EMDL or FAB.
+
+Method                         Source in runtime/comparisons/
+Screening and cutoff choices   fixed_selection.py
+Top-r families per component   fixed_selection.py
+Top-M score-ranked combinations fixed_selection.py
+Matched-budget random search   fixed_selection.py
+Beam search                    adaptive.py (replay_beam)
+Greedy family updating         adaptive.py
+Constrained fixed-K FAB        fab.py
+Study execution and accounting worker.py
+Paired/joint-K aggregation     report.py
+
+The top-r, top-M, random and beam methods compare fully fitted mixtures by
+BIC. Greedy updating is our specified BIC procedure, related to the general
+structural-EM idea; it is not a complete implementation of every structural
+EM algorithm. EMDL is not implemented in this study.
+
+The FAB comparison follows the family-update approach of Fujimaki and
+Morinaga (2012), using its own approximate Bayesian objective. It is adapted
+to a fixed component count, the thirteen FMVMM families and common numerical
+parameter restrictions. It does not delete components. Comparing K uses the
+FAB objective, not BIC; BIC is evaluated afterward. Results with an unfinished
+K fit must not be interpreted as complete comparisons across K.
+
+Fujimaki, R. and Morinaga, S. (2012). Factorized asymptotic Bayesian inference
+for mixture modeling. Proceedings of AISTATS, PMLR 22, 400-408.
+https://proceedings.mlr.press/v22/fujimaki12.html
+
+The numerical FMVMM package is the exact development-source snapshot used
+for the experiments, commit c40dc363f4651e62681bea5420507cebc4bb3b16. It is
+included under runtime/base/native/fmvmm with its original MIT license.
+Do not substitute a current PyPI version and assume it is the same numerical
+implementation. Portable entrypoints change paths and execution/integrity
+checks; the archived numerical algorithms remain unchanged.
+
+Pal, S. and Heumann, C. (2026). Flexible multivariate mixture models:
+A comprehensive approach for modeling mixtures of non-identical distributions.
+International Statistical Review 94(1), 61-96.
+https://doi.org/10.1111/insr.12593
+
+Dataset-specific sources and reuse terms are documented in data/README.txt
+and data/licenses. A repository-wide software license has not been selected
+for the study-specific scripts; existing third-party license notices remain
+in force. Public availability does not replace those notices.

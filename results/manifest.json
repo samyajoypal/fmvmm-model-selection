@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "files": {
+    "comparisons.json.gz": {
+      "original_file_sha256": "97b3ebaa5ecb7662900da7b0c6a39570b1468bda12fcf16efd41ee9b35b511a6",
+      "sha256": "cd9cad391ecfc9cc966f6c110311e30a9d0a18e33d7a1c9bda974deaf4c77b40",
+      "json_sha256": "e29abe32164e4511d35577f9595441f57a0ffc6614972ba60d47429bec454cf2",
+      "bytes": 2894300,
+      "transformation": "Lossless JSON repacking; all original values retained."
+    },
+    "protocol.json.gz": {
+      "original_file_sha256": "a66947a80ca05a738c3062cd6c51b3ff9d241d56f96c9ded663acb1a0598f880",
+      "sha256": "686801e3df4bb1fe99dcea632ad6365e7c90cb363a410f5197774fd337f00aad",
+      "json_sha256": "5e6689896313c3ac4b7f6f983c65b0c415fb5c95d1a3ebfa97fc685ce8433790",
+      "bytes": 11832,
+      "transformation": "Removed only the administrative authorization sentence. All scientific protocol fields and cases are unchanged."
+    },
+    "baseline.json.gz": {
+      "original_file_sha256": "1f98596fbf6bbc8f8896691ee56e4ca3d14b322ed4dd03df317271d614f19af5",
+      "sha256": "798100028ba3289b8e1c1126fdb872284d694189e6b33e063c5d689f64aaae4b",
+      "json_sha256": "7d6937324435c33a4567e16c1f003f3dbbe2110ca147f54640136b9cf4f2abb1",
+      "bytes": 115259,
+      "transformation": "Kept the 406 paper tasks unchanged, original identity, and original task_index. Omitted other tasks and aggregate totals for the wider execution."
+    },
+    "real_audit_expected.json.gz": {
+      "original_file_sha256": "d99c35630f27681f7159d17e4dce5e575cf8d68f3b4bb100c3d5328a8687dc9d",
+      "sha256": "8194635c038ea5e8e8eaa7c9156910f46bdde6873580a96a544870c8157bed72",
+      "json_sha256": "c8a1562f2e158188b647bc928fdcba27825186ea0f45840105dbd24d2d44c2ed",
+      "bytes": 16605,
+      "transformation": "Lossless JSON repacking; all original values retained."
+    },
+    "comparison_audit_expected.json.gz": {
+      "original_file_sha256": "cccf9f801ae7c73d81626fda62b541c8de01f45ae8b5bc149e970eb6b2d23a9b",
+      "sha256": "bea2fbf3f8d40f2e6c37b2769d4af3a47df82524eb1e53df1a5a7bc972052524",
+      "json_sha256": "19d50f28ed39221d3f7c7419ec6197e7f6ba44c8b8ff43a06a651d208fe69685",
+      "bytes": 19387,
+      "transformation": "Lossless JSON repacking; all original values retained."
+    },
+    "additional_fit_audit.json.gz": {
+      "original_file_sha256": "6dab86d8c0405eb88c478dea24ca1187c011d284612e24b00b53914a6e1f79aa",
+      "sha256": "6b9755cde5fc7c80e9e59dc7cb67e19280ddd7ae289937d50c96b500cbceda1c",
+      "json_sha256": "b0f5ef03627ff0f0b7706dbc877138f226ea73dcd750e148da6b488cd1220b77",
+      "bytes": 115,
+      "transformation": "Lossless JSON repacking; all original values retained."
+    },
+    "score_tables/sim_ordinary_heterogeneous_main_000.json.gz": {
+      "original_file_sha256": "f4a51eb25398dc628ef11cb55916d4340600df8666e1a734fb6bac2687d53993",
+      "sha256": "6c7a039ce79ff6e74b5a5ab8462996dfb0475e1f43a654cb1e69628b1a84576e",
+      "json_sha256": "55aacca1ef512dae7271e8f931429c9bbff3830e2d0c28f93103c30ced7c0c3a",
+      "bytes": 9537,
+      "transformation": "Kept exact scores, complete catalogue with assignments and retention flags, task and identity. Omitted fitted parameter arrays, timing metadata and redundant execution details, none used by the heatmap."
+    },
+    "score_tables/sim_five_mixed_main_036.json.gz": {
+      "original_file_sha256": "03896fef9670ec8d140507b2327550255ae903ba10d84f831d6983b6aa08f52e",
+      "sha256": "1f5bfb91b84642252f8127bbd0df0a97a18828a286412299f0b669e958b209c6",
+      "json_sha256": "72d3011e7591da940fefd4c58ea3a34d220a99999a98f17a73729c1ffa5ca576",
+      "bytes": 107330,
+      "transformation": "Kept exact scores, complete catalogue with assignments and retention flags, task and identity. Omitted fitted parameter arrays, timing metadata and redundant execution details, none used by the heatmap."
+    }
+  },
+  "numerical_changes": false
+}

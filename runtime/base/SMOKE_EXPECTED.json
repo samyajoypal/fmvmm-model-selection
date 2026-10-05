@@ -1,0 +1,132 @@
+{
+  "schema": "fmvmm-paper-smoke-expectation-v1",
+  "status": "qualified",
+  "local_output": "local_smoke_v2",
+  "training_sha256": "44561e3adc3793b6859cce2433bf73e9d3de4fd51b6d95425d58ca6743b15b21",
+  "scores": [
+    [
+      -937.9863935364732,
+      -868.3236597945495,
+      -861.8282894644185,
+      -865.8114588912131,
+      -932.1209779942023,
+      -861.9499581204848,
+      -848.6760582550778,
+      -866.6463195704935,
+      -860.0715975594128,
+      -862.1566185093051,
+      -874.7631751692331,
+      -866.0450756457271,
+      -852.9286302815983
+    ],
+    [
+      -699.3355430503584,
+      -720.1802733923296,
+      -712.6339469070756,
+      -713.5763517197461,
+      -701.0942208287265,
+      -713.522486558324,
+      -708.0015340644766,
+      -714.0013753402056,
+      -744.6400989544138,
+      -706.2432983291891,
+      -713.1497175224055,
+      -706.24340000809,
+      -708.0019543200399
+    ],
+    [
+      -868.7717147264157,
+      -846.8796346878316,
+      -839.9744009707922,
+      -841.606265607678,
+      -858.0771500007162,
+      -840.7383930212613,
+      -827.7902690114358,
+      -842.1790762294148,
+      -841.3732828472398,
+      -839.833890327902,
+      -846.7890551500524,
+      -840.1188212172394,
+      -828.1316097631025
+    ]
+  ],
+  "fit_indices": [
+    0,
+    442
+  ],
+  "retained_indices": [
+    120,
+    122,
+    161,
+    166,
+    186,
+    227,
+    235,
+    237,
+    239,
+    241,
+    242,
+    243,
+    260,
+    270,
+    273,
+    276,
+    282,
+    285,
+    287,
+    332,
+    363,
+    368,
+    399,
+    408,
+    415,
+    417,
+    427,
+    440,
+    442,
+    448,
+    451
+  ],
+  "tested_candidates": [
+    442,
+    0
+  ],
+  "fit_bic": {
+    "442": 4422.340491050311,
+    "0": 4482.406794853886
+  },
+  "fit_status": {
+    "442": "qualified",
+    "0": "qualified"
+  },
+  "fit_seconds": {
+    "442": 0.5771914890001426,
+    "0": 71.08959106100019
+  },
+  "table_seconds": 19.17621820500017,
+  "manifest_sha256": "829e03dc29c4aa13609c75afb79a62cc62584f41b705e3d04e7ed3d0175efcee",
+  "runner_sha256": "640d976310597928aa545808e8d9f3cdbc2cd0115e611fce47609c03c83bbb8a",
+  "bundle_source_sha256": "a2a71c51c5a87071a0afc0656f0db74a6b1aba02e2e509a8ca4d4d48baa2256d",
+  "runtime": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "pandas": "3.0.3"
+    },
+    "numerical_threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    }
+  },
+  "cpu_environment": {
+    "OPENBLAS_CORETYPE": "Haswell",
+    "NPY_DISABLE_CPU_FEATURES": "X86_V4,AVX512_ICL,AVX512_SPR"
+  },
+  "comparison_note": "Compare data hash exactly; compare scores and BIC using explicit declared numeric tolerances across Python patch versions and CPUs.",
+  "deployment_correction": "Only the two locally checked candidate IDs belong to the smoke comparison; the full catalogue belongs to the table checkpoint. Numerical expectations unchanged."
+}

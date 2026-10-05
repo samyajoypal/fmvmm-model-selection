@@ -1,0 +1,821 @@
+{
+  "schema": "fmvmm-public-runtime-1",
+  "package_commit": "c40dc363f4651e62681bea5420507cebc4bb3b16",
+  "original_base_freeze_sha256": "f09394bf4addf9f3bdd174f03fb7043878a32ea3f28e61c10704aa50ebcba9db",
+  "original_comparison_freeze_sha256": "c67d9f550a0414621fe75bc93e5f2ede9493f9d45899c97cedd698f2383edba8",
+  "scope": "Computational kernels and required data copied from the completed studies. Two documented path-only adaptations remove user-home defaults and two metadata-only edits remove conversational authorization fields. All other copied files retain original bytes. Binary wheels, cluster deployment configuration and unrelated raw datasets omitted. This is a new distributable runtime, not a byte-identical copy of the original cluster bundle.",
+  "files": {
+    "base/runner.py": {
+      "sha256": "640d976310597928aa545808e8d9f3cdbc2cd0115e611fce47609c03c83bbb8a",
+      "original_bundle": "base",
+      "original_relative_path": "runner.py"
+    },
+    "base/real_data_adapter.py": {
+      "sha256": "ff06f82a4fb822379b05d926bd661b0bb17a818ec575b10102fa31b6995febf8",
+      "original_bundle": "base",
+      "original_relative_path": "real_data_adapter.py"
+    },
+    "base/manifest.json": {
+      "sha256": "ab0009494b416ad0ecd90d453f0aa576b5d87d2c40d941445513bd1b53c9eeb5",
+      "original_bundle": "base",
+      "original_relative_path": "manifest.json",
+      "original_sha256": "829e03dc29c4aa13609c75afb79a62cc62584f41b705e3d04e7ed3d0175efcee",
+      "publication_change": "Metadata-only: remove conversational acceptance_policy field. Scientific settings, tasks, counts, budgets and seeds unchanged."
+    },
+    "base/requirements.lock": {
+      "sha256": "b38f4c74b9df8d424fa299fb0af1b9412dc6f3f2c7784d178d2062d75cb88186",
+      "original_bundle": "base",
+      "original_relative_path": "requirements.lock"
+    },
+    "base/SMOKE_EXPECTED.json": {
+      "sha256": "085c36e3cdd018ea52618334b2fa4802273642a8f989177375ea1b5b0054b241",
+      "original_bundle": "base",
+      "original_relative_path": "SMOKE_EXPECTED.json"
+    },
+    "base/native/Study/data_generation.py": {
+      "sha256": "66d9351fc3c96d42604e02de9ed0d8173ab370eb81f686dae096d5c480d1f851",
+      "original_bundle": "base",
+      "original_relative_path": "native/Study/data_generation.py"
+    },
+    "base/native/Study/fmvmm_engine.py": {
+      "sha256": "8350632b857d2e5181754b7092b55113411858b9f1985c097f5bf81e2394e415",
+      "original_bundle": "base",
+      "original_relative_path": "native/Study/fmvmm_engine.py",
+      "original_sha256": "b77554bdfd840fa250f1cb505a263e62523151c5e0ad8e885d750056e098e038",
+      "publication_change": "Path-only: require explicitly configured FMVMM_REFERENCE_ROOT instead of the original user-home fallback. scripts/refit.py supplies the vendored path. No numerical operation changed."
+    },
+    "base/native/fmvmm/.github/workflows/python-publish.yml": {
+      "sha256": "85af4125e3c0b83d99a8bd33f321b5addd360ec2b7f71f63b966b970f1057ec7",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/.github/workflows/python-publish.yml"
+    },
+    "base/native/fmvmm/.gitignore": {
+      "sha256": "e9187ec4c82616c0011d9db1d1268d1bdaaa97ef94541efc82544f4623951ac6",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/.gitignore"
+    },
+    "base/native/fmvmm/LICENSE": {
+      "sha256": "61d17e6bb3674d420e5e3622c481cb9a94ca9c1b17c60ba716fcea6261943992",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/LICENSE"
+    },
+    "base/native/fmvmm/MANIFEST.in": {
+      "sha256": "2a0d1a341c03bf90d625a2e17a7d097d970fb6aca5e50dd851e8225403d72b8b",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/MANIFEST.in"
+    },
+    "base/native/fmvmm/README.md": {
+      "sha256": "a38074cb4dc88c941f7089654566e7d7497976e98220643d3e9d2f3ed769a3cb",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/README.md"
+    },
+    "base/native/fmvmm/RESEARCH_NUMERICS.md": {
+      "sha256": "c29b035f94050211f506f177f24f5bc27c1f52f0eeb97fbaf22e59a5d7a2a3f3",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/RESEARCH_NUMERICS.md"
+    },
+    "base/native/fmvmm/Tests/README.md": {
+      "sha256": "3ca4d918c286cfd823cb8140c86c3aa4ce207c4851051b925766a81d94b18ec0",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/README.md"
+    },
+    "base/native/fmvmm/Tests/dmm_inference_example.py": {
+      "sha256": "30f9b71e1df07378e612c1874ad465d4b620ed36c78de770dfe69c62f21964d0",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/dmm_inference_example.py"
+    },
+    "base/native/fmvmm/Tests/dmm_tests.py": {
+      "sha256": "bb9a476da00d52c0db5590102098de9dd6faecc3e335248be65ef673f1f2ed0f",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/dmm_tests.py"
+    },
+    "base/native/fmvmm/Tests/fmvmm_info_tests.py": {
+      "sha256": "71f9a4ef68e184d0a2666c1c88c2bc7e756d95e7f5877de3deb588ca68caf94f",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/fmvmm_info_tests.py"
+    },
+    "base/native/fmvmm/Tests/fmvmm_mstep_tests.py": {
+      "sha256": "9b64f8a9bbffffa6d3c7cb6fe0f16f464d5db072587d40dcb5a667c4000c59f5",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/fmvmm_mstep_tests.py"
+    },
+    "base/native/fmvmm/Tests/fmvmm_permutation_tests.py": {
+      "sha256": "362134021283087221b272823fd637e9b345e87847f0a9b0f15a6f05f3596447",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/fmvmm_permutation_tests.py"
+    },
+    "base/native/fmvmm/Tests/fmvmm_tests.py": {
+      "sha256": "d7aad7ddc5d86fd2285079024d2ea9dd689c97b5342e53c62728fe53b9c96c48",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/fmvmm_tests.py"
+    },
+    "base/native/fmvmm/Tests/inference_tests.py": {
+      "sha256": "037cb529853df56e20c34d1632aa69f7e3a77e663b94ca5fe47547db7e1b9270",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/inference_tests.py"
+    },
+    "base/native/fmvmm/Tests/louis_identity_tests.py": {
+      "sha256": "f5bce28c58190c2f91c8a5b42f9c67c255723a9a438cb6bd10f468081668b92e",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/louis_identity_tests.py"
+    },
+    "base/native/fmvmm/Tests/mix_skew_laplace_tests.py": {
+      "sha256": "0b0438b29f3922b7fc530df79376f456b63c71073f583a5f375a50143b4833a0",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/mix_skew_laplace_tests.py"
+    },
+    "base/native/fmvmm/Tests/mixmgh_tests.py": {
+      "sha256": "2983c308343b0e72e52819fc91f8fe822c8aab76279ee8e13531218916e2d98b",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/mixmgh_tests.py"
+    },
+    "base/native/fmvmm/Tests/mixsmsn_tests.py": {
+      "sha256": "934158bd4c2c78c39039172c0887b912bbf019ff66584f4222266ac567b069b8",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/mixsmsn_tests.py"
+    },
+    "base/native/fmvmm/Tests/numerics/README.md": {
+      "sha256": "b085bb35471a46f21e54014a9e9dcdb187b19a4e5eb1727d92eff07a5b2fbce8",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/README.md"
+    },
+    "base/native/fmvmm/Tests/numerics/fixtures/coordinate_roundtrips.json": {
+      "sha256": "c5e319ef0ffc181e9eca63a4b31d4486bd7e6a8b852e55563872ea7f2f41ea71",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/fixtures/coordinate_roundtrips.json"
+    },
+    "base/native/fmvmm/Tests/numerics/frozen_gh_stall.json": {
+      "sha256": "bbb0b6bb206a3734c60754bebde4f511e2cdb1ad4c3704e88b9171c4abfd3544",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/frozen_gh_stall.json"
+    },
+    "base/native/fmvmm/Tests/numerics/scheduled_gh_profiles.json": {
+      "sha256": "6f10b65f323e18108d9b2f742273e6cc92e705d7d33bf75beb2d0b4ca793f0b1",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/scheduled_gh_profiles.json"
+    },
+    "base/native/fmvmm/Tests/numerics/test_all_family_em.py": {
+      "sha256": "0bdae3b26d4dd09855940fe6ccab9ea11869d1c31ba9d1acdca03eab3a2bf7e6",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_all_family_em.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_component_budget.py": {
+      "sha256": "d6722f7c8cf405e0b801aef0731c31a81fd9dfcadd8315befc3da5967ed73787",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_component_budget.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_constrained_em.py": {
+      "sha256": "06e8312a69e3cd8bdbfecb6f629b9196509f667bfe20f367e1b5bed90e8d2b45",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_constrained_em.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_curvature_rescue.py": {
+      "sha256": "f3234502b45645f8f6fddcd16fc80fd2f701083b13dab62442e847b886d82614",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_curvature_rescue.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_cusp_stationarity.py": {
+      "sha256": "114e0678eec40baeeeeff54ad6223c5e32b345192f97a5a9b335fa4c75217b48",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_cusp_stationarity.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_exact_ties.py": {
+      "sha256": "9eb09d014f6bb09507d8e58b95bd66283b8ff5d8ae6df7b968f07f87b98ebb24",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_exact_ties.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_integration.py": {
+      "sha256": "2285961e7e07451a8b513634e9b3314109aad8077418215ed3d35b9be1ef9999",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_integration.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_log_bessel_range.py": {
+      "sha256": "0446693ec23e48097d39fda338779a3fea7be562924bef3f37240d045d839cb4",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_log_bessel_range.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_probability_transport.py": {
+      "sha256": "ec5c1e30de0a922fb9a67ca01e8697f8b324ea21efec8024b98d06c2665f8847",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_probability_transport.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_robust_mvt.py": {
+      "sha256": "1a5c4815203ec1010ea8698fd84f671ee8cc58fce6e6a28912a04ce82c237bec",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_robust_mvt.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_robust_slash.py": {
+      "sha256": "18961fa4d1b38abce35c3933969b28def609f02d672c111d85230296732e457a",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_robust_slash.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_scheduled_curvature.py": {
+      "sha256": "dc1b67fb5031ccda30aed6f26eb0610ccb31cc119f826d74b04ef727b4937597",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_scheduled_curvature.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_slash_joint_score.py": {
+      "sha256": "f47e4df04806a234ed1c7e31fe7316f09eb9ec4ccfe74f838cb5203b678cc17d",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_slash_joint_score.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_subnormal_cdf.py": {
+      "sha256": "108169dd514949c7ae0d7ac1b3df2227a2ce7e0b941bcc5abb8b7caf79c991f4",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_subnormal_cdf.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_verified_codec.py": {
+      "sha256": "ff1e038bf61985b7eeaefbdfd0e37707fa362bb06fbec8310efe2d003aaba959",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_verified_codec.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_weighted_gh_score.py": {
+      "sha256": "ce841d0e0981ce121da726c5d0c26c9eb8d883305442084b53c64252d9da10f8",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_weighted_gh_score.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_weighted_scores.py": {
+      "sha256": "3929da63f8d4cc7e30114fe9bc647073f169e77a8f1de0db3c2596f748e85100",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_weighted_scores.py"
+    },
+    "base/native/fmvmm/Tests/numerics/test_weighted_slash_score.py": {
+      "sha256": "238312e9ac19b54b90be3436bb6577aadec55ae191cdddfe47fa5d9758d32867",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/numerics/test_weighted_slash_score.py"
+    },
+    "base/native/fmvmm/Tests/skew_laplace_distribution_tests.py": {
+      "sha256": "98d4dfffaadf2b91d66cdc0668f91b5d69c1e0e9f0dd4ce439852d7c45ec9864",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/Tests/skew_laplace_distribution_tests.py"
+    },
+    "base/native/fmvmm/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/__init__.py": {
+      "sha256": "f19eb8c7a31eb0e4f580090815fa43e4a9031da5d9ff95a4191e4a47580d7198",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/dirichlet.py": {
+      "sha256": "cb6333db3f609efd37e509808313b6a2a6025bf4f3206ac5c9df4d5f116a6b17",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/dirichlet.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/gig.py": {
+      "sha256": "dcc97b28cacf8259313eda1beb88ee4868bcd143bb8285554ad8c0a0c55c67d7",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/gig.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_genhyperbolic.py": {
+      "sha256": "b007d6afdfb03b0529ad58472091e08ccac2679426ea71bf63c9593bd3e18a43",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_genhyperbolic.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_genskewt.py": {
+      "sha256": "a6e3f646c90b529d414911d96d7fbab641d4d75e49dc06937d916aec2c9cd1a8",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_genskewt.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_hyperbolic.py": {
+      "sha256": "3eeb8a6b8f9330feec6c8054481f9e12b0a5b7f4af3b62234b73e3d0367473c3",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_hyperbolic.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_norm.py": {
+      "sha256": "7e60ca988790a1399d2fed477214877170a012f2798041c22779257e33091ff4",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_norm.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_norminvgauss.py": {
+      "sha256": "4823c7ead53f9e84f2924fd1c9c5c48fac6e8ed068dfb5a5b59de203d8d2d8ae",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_norminvgauss.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_skew_laplace.py": {
+      "sha256": "ce7510d73463aedf108945b1c4e3e180190202251fe2ef09c48b7d78dc56d391",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_skew_laplace.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_skew_t_smsn.py": {
+      "sha256": "510c69e69da261b535e480df904cb24aa99246deef9829bbe762a3157d8dea74",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_skew_t_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_skewnorm.py": {
+      "sha256": "69fd7c09e9090bf18b39175e2d039a6a6110ae8703f00a3af63f0181b932bc38",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_skewnorm.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_skewnorm_cont.py": {
+      "sha256": "68bd1b04f2a179d88c09566d13b6a3064a8543a04905962ba5a5ab5c699fa844",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_skewnorm_cont.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_skewslash.py": {
+      "sha256": "9dc2608c74623110190ca60d2b605716dfdb0c5c227a67bf3ff99a146db0efc5",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_skewslash.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_slash.py": {
+      "sha256": "ef1c6e92fcd1b01a65c6611c52bb528436b5a0eeb9035a13ea3af2df0aaa075e",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_slash.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_t.py": {
+      "sha256": "b5c5ae793d802b39ce93310eae47876229ba6e4a2f34a42721092a2707df575e",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_t.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/multivariate_vargamma.py": {
+      "sha256": "e526863aef6f8821671e8ee495f142c1dd56da5de11487718ec8cf67bb7a967a",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/multivariate_vargamma.py"
+    },
+    "base/native/fmvmm/fmvmm/distributions/py_gig.py": {
+      "sha256": "1909b9885392c8c84f8d1cd4a8cd4ed1e849ee2d01b67c16273daa49f0cf3d1d",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/distributions/py_gig.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/__init__.py": {
+      "sha256": "809080b99a7a057743789cea98f634e0fecaeb14d408f068077171a088d83273",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/adapters.py": {
+      "sha256": "cb9fbca7aa0c51d0310afd7ea8700f7294a4c36bdba04bbec9ebbf68b7b66bc7",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/adapters.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/bootstrap.py": {
+      "sha256": "1200eedaf15c79fb79b5078b99bc1051342aa37223558c2a6897a07f891cfb2d",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/bootstrap.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/constraints.py": {
+      "sha256": "44fb90eed40b4bcf8ab8a6ec6cf820454350d36467b5327b3f0695727487e4fb",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/constraints.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/inference_dmm.py": {
+      "sha256": "61e630b02366bb99ae2c95b7c6dae27b1e6030d9fdfbaae2312131b8976cf46d",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/inference_dmm.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/lrt.py": {
+      "sha256": "7d2ad39487ee6101b9117e298e879b1361e6bf6dbd1664aac80b0f213952fe8c",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/lrt.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/parameters.py": {
+      "sha256": "6bcc350c35142318c72357d86eb83530be5d5eb4de0d12870c51fc90b01415d1",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/parameters.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/results.py": {
+      "sha256": "ebd96aa1771994494c8a3149e6786b96b2b5e2e536c4090277bdab770f406936",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/results.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/score.py": {
+      "sha256": "d43d6046249af6833f4dd0c1d34824399dea52981ed29ca822b3c9e74ce4da4e",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/score.py"
+    },
+    "base/native/fmvmm/fmvmm/inference/wald.py": {
+      "sha256": "01e065829bab389fd84366b5570de03f5ff8df94d84d52f7c2b67463b7aba0a2",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/inference/wald.py"
+    },
+    "base/native/fmvmm/fmvmm/mixsmsn/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixsmsn/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/mixsmsn/dens.py": {
+      "sha256": "dc5670d1f2c2b29a84d340a765ebff9c465252e1ea4d970371a7ba80426e9eab",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixsmsn/dens.py"
+    },
+    "base/native/fmvmm/fmvmm/mixsmsn/gen.py": {
+      "sha256": "1fd445e00dd978dafc2ebb95ba2b77befa96100688a56c1684e7777975412966",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixsmsn/gen.py"
+    },
+    "base/native/fmvmm/fmvmm/mixsmsn/information_matrix_smsn.py": {
+      "sha256": "1e4741801dfa90cc89b138a710e6ce48f431ede291afe0a72415a0fbfd87505a",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixsmsn/information_matrix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/DMM_Hard.py": {
+      "sha256": "dde6f5a8597332278e5f503edbac85c2441e99dca80b2d30b26ce248f02cb4d5",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/DMM_Hard.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/DMM_Soft.py": {
+      "sha256": "f2189c55f32d89cefad66afb44f4510e64d0af52ff03090cb3eb5204976a57a7",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/DMM_Soft.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/DMM_Soft_Constrained.py": {
+      "sha256": "353b1f71c6cccd4b5241d5466ed321c937caca2f9743476d7f96ad5399331e61",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/DMM_Soft_Constrained.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/DMM_Soft_MuEqualPair.py": {
+      "sha256": "ea1294ecf19ef6d4c1a202477ac666f4da9b564cc8b7e2d23767031e04f0604b",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/DMM_Soft_MuEqualPair.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/DMM_Soft_NullModels.py": {
+      "sha256": "351f50dfa6b67f46be523dd1edbe8e7a8d4c10fd3f1f4cd68189cb9e268200b3",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/DMM_Soft_NullModels.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/FMVMM.py": {
+      "sha256": "0c8bcf858ce27f3aadbfec0eb7d98c47ff4e4d0e9caf443137fb720712f2814f",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/FMVMM.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/MixGHD.py": {
+      "sha256": "0c025654c3a15812f342dbfc1de8fd2b16a0a64de4928c062cdc6fc7c0d0a6c0",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/MixGHD.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/_base.py": {
+      "sha256": "1db889f82ad59ca8c61f4ec9bc09c907cf7e1ea04153d019e9ade3e63e22ae29",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/_base.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/mixmgh.py": {
+      "sha256": "ac9843571c3db5ddaa3607697b0bd85bfbfdb6471c63421988421b04375acee5",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/mixmgh.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/skewcontmix_smsn.py": {
+      "sha256": "a87c2045751d2a6be0289fbe68b92d778c67b9af669dcb2e7b162e91c87ae5f2",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/skewcontmix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/skewlaplacemix.py": {
+      "sha256": "ea476f269f96dc397cfdf26b6125df1e23520ce5b2af574fc7c0886085b31a49",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/skewlaplacemix.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/skewnormmix_smsn.py": {
+      "sha256": "3d040465f4c419def24f2feadd5e140dbc2cdb202980b0c6f484ec61c9688cd0",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/skewnormmix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/skewslashmix_smsn.py": {
+      "sha256": "7131a4cc6454ecad41c0ea9bb0773ec51a7e0e2801878c062af583c5a92b2ea0",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/skewslashmix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/skewtmix_smsn.py": {
+      "sha256": "02080186ed4d87fd49da0c4a62a2bca34cbb81ec9a5b1174649bd1e0d0d2cdfb",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/skewtmix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/slashmix_smsn.py": {
+      "sha256": "78635f7b1c93b8ba7d40b3697eec772f48e8d8cba3fce34802374612a7205b1c",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/slashmix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/mixtures/tmix_smsn.py": {
+      "sha256": "0bcb6f231801d9f5978a288e79ef6c0957d102e5918ca6cebe585cc2419cfe19",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/mixtures/tmix_smsn.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/__init__.py": {
+      "sha256": "b2f8e7654e1f94fc259efcc333cc8d9f526772f4efda43c29869f595bc6352ba",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/component_budget.py": {
+      "sha256": "9a8e8294a364fe6ffbb83f46e161aa5f478b7854ec95f88632c7e4928c85aa4e",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/component_budget.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/constrained_mstep.py": {
+      "sha256": "561a96f6b60fb92a686a53ac098a8415e46240a161c338e9ff784c4c63a18229",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/constrained_mstep.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/cusp_stationarity.py": {
+      "sha256": "21c4f6286cd50b5eb022e58b126776cfcb5c991e067e257d23352e3aa8f228eb",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/cusp_stationarity.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/em_policy.py": {
+      "sha256": "0bab424c6f02755e8fee35693ba3b7b23e8db908ff540d75c4cd3b223bcbc1ec",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/em_policy.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/gh_policy.py": {
+      "sha256": "285dbc6eb80300090141897156eb38be103f333f290fdb29cc833a62a301b3ee",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/gh_policy.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/lossless_json.py": {
+      "sha256": "891e0e1ab6e1279881fdb5c5f5b9a37a69d56572872708a3adff1a82c76698f9",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/lossless_json.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/robust_bessel.py": {
+      "sha256": "ae8c5f0820dc9f26caf7474962f46f28f6512c1621c38c19769f5c8e679e68a5",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/robust_bessel.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/robust_gh.py": {
+      "sha256": "d896f3a1a84274c705934a57467fa7f4b214c32e3baffa095e429fe56439909a",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/robust_gh.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/robust_mvt.py": {
+      "sha256": "d940fcd84169df143c7017bca17ad09f18aa8fe5cb32505533e2ef3b2c141233",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/robust_mvt.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/robust_probability.py": {
+      "sha256": "1067ce9a127e19a153486cdeb3c691b1ca58c6e95e1372231e84b2a840077502",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/robust_probability.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/robust_skew_t.py": {
+      "sha256": "52cde5c20bfa20764144dd2b575fc3b923bb0146aa2bfb35c0372d4be0cf3b28",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/robust_skew_t.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/robust_slash.py": {
+      "sha256": "299088c378436e4c3801391753f513d3805b4aad2421d193025ee067aeaea997",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/robust_slash.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/smooth_rescue.py": {
+      "sha256": "7f7e668343dd74c50544b0195c14071d64f6f4536162560e2551ad2a365ee57f",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/smooth_rescue.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/verified_codec.py": {
+      "sha256": "dbdabfc7caf93945c69ede7e682ab66eeab1ec6c87772640bdbb14402199bcf3",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/verified_codec.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/weighted_gh_score.py": {
+      "sha256": "19b47aa6852b2a3b4f76a62e76f999d11dd1e6b26cdb086e8e85117f1d008f3c",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/weighted_gh_score.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/weighted_msnc_score.py": {
+      "sha256": "a47c51b56e16977958b153de01e63aaeed00996070c83788e5b5488285549190",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/weighted_msnc_score.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/weighted_skew_t_score.py": {
+      "sha256": "144259201577059d6a13486d6bc588406714491ffec09c5dc0601c6d0b36e1d4",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/weighted_skew_t_score.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/weighted_slash_joint_score.py": {
+      "sha256": "c62d388e42da242576b839ce4122781c1b293a6ce67ee2c1ae08bd7eab809a86",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/weighted_slash_joint_score.py"
+    },
+    "base/native/fmvmm/fmvmm/numerics/weighted_slash_score.py": {
+      "sha256": "f219256885e1c38a86990c7e998cf9520c6de7e5d440f22264d10e984a6d5575",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/numerics/weighted_slash_score.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/__init__.py": {
+      "sha256": "4c335ba77e8473a54cde378767bf8de672cab1bd659bc22e02670b705ddeaa69",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/__init__.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/dirichlet.py": {
+      "sha256": "0fb3de8e49c906a0f45b616bf62cac379f41499bda7538e3c8c182ff025d4f78",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/dirichlet.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/simplex.py": {
+      "sha256": "4fcc5b20b8717ce5d75f1880141b870bcc2d050c389ca0555acb83522fa4672d",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/simplex.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/utils_dist.py": {
+      "sha256": "251633d0ba8588d31e85c9f3f5b098390e01c0b7acb6df9ca5f4e097f76f00a5",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/utils_dist.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/utils_dmm.py": {
+      "sha256": "9ff43f5b5f559f7721297b0362c2fd0b3b9ae2c59ec601186016a52cc65cba7f",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/utils_dmm.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/utils_fmm.py": {
+      "sha256": "e06abd73ea17cdd4f6ea50c3643770703a2741c9908ebeadcbeb9c86da639231",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/utils_fmm.py"
+    },
+    "base/native/fmvmm/fmvmm/utils/utils_mixture.py": {
+      "sha256": "256fe27b98e7d914002a85591c683869704aa47d2a39d3ead1acb00b5ea18ae4",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/fmvmm/utils/utils_mixture.py"
+    },
+    "base/native/fmvmm/requirements.txt": {
+      "sha256": "e7a06d460adb99296036687742904e80a53e78dd4a6cf01245b74350fb7b9777",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/requirements.txt"
+    },
+    "base/native/fmvmm/setup.py": {
+      "sha256": "20f676ad64e5154d06e2c60c1733efa9b519afdad36ea7780bad0c339f760d42",
+      "original_bundle": "base",
+      "original_relative_path": "native/fmvmm/setup.py"
+    },
+    "base/native/l13_readiness.py": {
+      "sha256": "39485d205235c2f4fb6a8d39fc62db314c3d92a751effd620341e0db231b6410",
+      "original_bundle": "base",
+      "original_relative_path": "native/l13_readiness.py"
+    },
+    "base/native/l13_readiness_protocol.json": {
+      "sha256": "5dd4e0481de639195f780ba812ed2aba58394daef81ba1d81305aa6f67b42ccc",
+      "original_bundle": "base",
+      "original_relative_path": "native/l13_readiness_protocol.json"
+    },
+    "base/native/local_pilot.py": {
+      "sha256": "9bc20e53ab52c0a86aaf093b3462858ef47d6e6092deeb74000598423a991364",
+      "original_bundle": "base",
+      "original_relative_path": "native/local_pilot.py"
+    },
+    "base/native/pilot_protocol.json": {
+      "sha256": "e7d1a4eec5558117917a245e554f0aa24fe774820505ee3a6e5740ab151d6a03",
+      "original_bundle": "base",
+      "original_relative_path": "native/pilot_protocol.json"
+    },
+    "base/native/readiness_checks/v5_proposal/l13_readiness_protocol_v5.json": {
+      "sha256": "b423c3386d11018e8f22115aab5e9d78f5ec174a03c4441a248dc9afe036809a",
+      "original_bundle": "base",
+      "original_relative_path": "native/readiness_checks/v5_proposal/l13_readiness_protocol_v5.json"
+    },
+    "base/native/readiness_checks/v5_proposal/l13_readiness_v5.py": {
+      "sha256": "639440557ee462b6bc2746e7cc580c3a1e62f48dee188957bcc851b4e499dc2d",
+      "original_bundle": "base",
+      "original_relative_path": "native/readiness_checks/v5_proposal/l13_readiness_v5.py"
+    },
+    "base/native/readiness_checks/v5_proposal/l13_selected_v5.py": {
+      "sha256": "df7b8f01dad266d866dc547d9def72b510b02c911151fc358197bb03f5a15c03",
+      "original_bundle": "base",
+      "original_relative_path": "native/readiness_checks/v5_proposal/l13_selected_v5.py"
+    },
+    "base/native/readiness_checks/v5_proposal/pilot_eligibility.py": {
+      "sha256": "11e0abb526a90726927c4df6f9faca8aad93b49f427825899d64dbc7e5d5b5c3",
+      "original_bundle": "base",
+      "original_relative_path": "native/readiness_checks/v5_proposal/pilot_eligibility.py"
+    },
+    "base/Study/data_generation.py": {
+      "sha256": "66d9351fc3c96d42604e02de9ed0d8173ab370eb81f686dae096d5c480d1f851",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data_generation.py"
+    },
+    "base/Study/fmvmm_engine.py": {
+      "sha256": "8350632b857d2e5181754b7092b55113411858b9f1985c097f5bf81e2394e415",
+      "original_bundle": "base",
+      "original_relative_path": "Study/fmvmm_engine.py",
+      "original_sha256": "b77554bdfd840fa250f1cb505a263e62523151c5e0ad8e885d750056e098e038",
+      "publication_change": "Path-only: require explicitly configured FMVMM_REFERENCE_ROOT instead of the original user-home fallback. scripts/refit.py supplies the vendored path. No numerical operation changed."
+    },
+    "base/Study/real_data.py": {
+      "sha256": "dcf940fb19c62d7a1f58dda633c43f81e7d49c2d3caa4d7154715464e4aa5462",
+      "original_bundle": "base",
+      "original_relative_path": "Study/real_data.py"
+    },
+    "base/Study/data/manifest.json": {
+      "sha256": "5d89086987fd9f09e6a4746ff22ad64e71c9f81c89cb9146f66997984815419c",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/manifest.json"
+    },
+    "base/Study/data/raw/faithful.R": {
+      "sha256": "3cdac44bca411deabae2904557fce2272e87c83128087d1927a5384fb8c99e4f",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/raw/faithful.R"
+    },
+    "base/Study/data/raw/seeds.zip": {
+      "sha256": "5033bd71b24592fa70d9b3cc5be02332dc6d03d0b27e6655e6d553f39afab323",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/raw/seeds.zip"
+    },
+    "base/Study/data/raw/wdbc.zip": {
+      "sha256": "bc154869ef13f753f9e2b5a17e248cfe1ba4b6721db7c4da9f4880e40b05d3af",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/raw/wdbc.zip"
+    },
+    "base/Study/data/raw/R-datasets-DESCRIPTION.in": {
+      "sha256": "4ce77b76b57ed08343b62e548eb95cbcfcd77d111881e6262b711a56b973f6a4",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/raw/R-datasets-DESCRIPTION.in"
+    },
+    "base/Study/data/processed/faithful.npz": {
+      "sha256": "d91f4068df7be6f694da99fc7b192050415d59a0a56ad9a8187d8fc8c8487386",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/processed/faithful.npz"
+    },
+    "base/Study/data/processed/seeds.npz": {
+      "sha256": "a3ac38dee08220c5a836a53c01e56a3906038615808a299c57caa9829b698495",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/processed/seeds.npz"
+    },
+    "base/Study/data/processed/wdbc.npz": {
+      "sha256": "6b061ecfde5182e4f3b21eaa5ada0ccf01991054525c888ec658156abfde8a88",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/processed/wdbc.npz"
+    },
+    "base/Study/data/licenses/CC-BY-4.0.txt": {
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/licenses/CC-BY-4.0.txt"
+    },
+    "base/Study/data/licenses/R-4.5.1-COPYING": {
+      "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/licenses/R-4.5.1-COPYING"
+    },
+    "base/Study/data/licenses/R-4.5.1-COPYRIGHTS": {
+      "sha256": "93a225906ee6514d1482548f8945e41a5cfcbae70610f9577ac7c9a512e060f0",
+      "original_bundle": "base",
+      "original_relative_path": "Study/data/licenses/R-4.5.1-COPYRIGHTS"
+    },
+    "comparisons/worker.py": {
+      "sha256": "7b2003e968ffe979adf5f76d86a27874cd866624962cfec7d93a605850fba20d",
+      "original_bundle": "comparisons",
+      "original_relative_path": "worker.py"
+    },
+    "comparisons/fixed_selection.py": {
+      "sha256": "80c281bdf74149cc289450ad4e48ed607c95d6c82a2db7e8cc0d8cf1f7340828",
+      "original_bundle": "comparisons",
+      "original_relative_path": "fixed_selection.py"
+    },
+    "comparisons/adaptive.py": {
+      "sha256": "6d131126d7a7deb45f0ff89293981ba602b67bfb6d8cd685a28bb1f0b3c7719a",
+      "original_bundle": "comparisons",
+      "original_relative_path": "adaptive.py"
+    },
+    "comparisons/fab.py": {
+      "sha256": "ce4d35f2d652c79da2acd1bac507ee89b4717841135526cda9c5add1bde9c3c0",
+      "original_bundle": "comparisons",
+      "original_relative_path": "fab.py"
+    },
+    "comparisons/report.py": {
+      "sha256": "193e19303225d923a42fc7d73482a651fea3e379874ccc80fa50f737320d8d00",
+      "original_bundle": "comparisons",
+      "original_relative_path": "report.py"
+    },
+    "comparisons/protocol.json": {
+      "sha256": "3a1560c2a219650a969b5ee64f2416aa4fbc3a17e18dd08c8824c0b42c4b13cb",
+      "original_bundle": "comparisons",
+      "original_relative_path": "protocol.json",
+      "original_sha256": "a66947a80ca05a738c3062cd6c51b3ff9d241d56f96c9ded663acb1a0598f880",
+      "publication_change": "Metadata-only: remove conversational authorization field. Scientific settings, tasks, counts, budgets and seeds unchanged."
+    },
+    "comparisons/test_worker.py": {
+      "sha256": "be236e6972c71bb6db3192388b2f8158e94dd567780df8fe48c457a3c795cf84",
+      "original_bundle": "comparisons",
+      "original_relative_path": "test_worker.py"
+    },
+    "comparisons/test_fixed_selection.py": {
+      "sha256": "e666c4519a88830e001d8d861f19192269ec4f940412ece5d62fae8599916909",
+      "original_bundle": "comparisons",
+      "original_relative_path": "test_fixed_selection.py"
+    },
+    "comparisons/test_adaptive.py": {
+      "sha256": "efe5368be1097de7411980f27c88f7e58de5da28c54d891576c0a0bd266f71b0",
+      "original_bundle": "comparisons",
+      "original_relative_path": "test_adaptive.py"
+    },
+    "comparisons/test_fab.py": {
+      "sha256": "c2e210c24d76e9250c6b8e4178a29e9d5991344b615e143d59cd4bd4266354ac",
+      "original_bundle": "comparisons",
+      "original_relative_path": "test_fab.py"
+    },
+    "comparisons/test_report.py": {
+      "sha256": "7a4ea7877f0fbcc7ab3590079befa23ec43e84888bbf98d86db2b2b13858c93b",
+      "original_bundle": "comparisons",
+      "original_relative_path": "test_report.py"
+    }
+  },
+  "omitted_upstream_directories": [
+    "base/native/fmvmm/fmvmm/Data",
+    "base/native/fmvmm/fmvmm/Examples"
+  ]
+}

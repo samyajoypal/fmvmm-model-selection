@@ -1,0 +1,156 @@
+REFITTING THE EXPERIMENTS
+
+The saved results can be analysed without fitting models again. This document
+explains the separate, computationally expensive path that regenerates data,
+fits mixtures and reruns every applicable comparison. It never reads saved
+published fit outcomes. It requires a POSIX system (Linux, or a Linux environment
+such as WSL), Python 3.12 and the exact packages in requirements.txt. The native
+runner uses POSIX file locks and signal-based per-operation time limits.
+
+From the repository root, after installing the requirements:
+
+  python scripts/refit.py check
+  python scripts/refit.py test
+
+The first command verifies the runtime source/data hashes and dependency
+versions, imports the native FMVMM implementation and loads/preprocesses the
+three real datasets. It fits no models. The second additionally runs the
+comparison formula, selection and accounting tests and portable workflow tests.
+
+A small numerical check uses the original fixed smoke dataset (1,000 training
+observations, two dimensions, three components), fits its 13-family score table
+and two specified complete mixtures, and checks the original numerical
+expectations. It is larger than an import test but much smaller than the study:
+
+  python scripts/refit.py smoke --output runs/smoke
+
+To see the registered cases without fitting anything:
+
+  python scripts/refit.py plan --scope all
+  python scripts/refit.py plan --scope simulation
+  python scripts/refit.py plan --scope real_data
+
+The full paper scope comprises 406 cases: 370 simulation cases (350 main
+replications and 20 additional H3 replications) and 36 real-data split/K cases.
+All cases compare the five cutoffs. The 256 cases with complete-catalogue
+comparisons also run top-r, top-M, matched random search, beam search, greedy
+updating and constrained fixed-K FAB. These are the original registered case
+identifiers and seeds; no replacement observations are generated.
+
+One command refits the simulation study:
+
+  python scripts/refit.py run --scope simulation --jobs 8 --output runs/simulation
+
+One command refits the real-data study:
+
+  python scripts/refit.py run --scope real_data --jobs 8 --output runs/real_data
+
+To run both, use --scope all. To run a single case, add --case followed by an
+exact task ID from the plan, for example:
+
+  python scripts/refit.py run --case sim_gaussian_control_main_000 --jobs 4 --output runs/one_case
+
+Every command above performs the full registered set of fits for its selected
+cases, including the larger numerical comparison search. A single case can
+therefore be substantial. --jobs limits the number of simultaneous worker
+processes; each numerical worker uses one BLAS thread. Choose this value for the
+available memory and CPU allocation. No cluster account, SSH connection or Slurm
+configuration is required, and the scripts do not submit jobs themselves. On a
+cluster, launch the same command inside resources allocated by that cluster.
+
+The stages are score tables, base complete-mixture fits, comparison plans,
+additional complete-mixture fits required by the expanded cutoff sets, greedy
+and FAB updates, per-case summaries and final merging. Fixed-score methods reuse
+the same newly fitted model outcomes and measured costs. Beam search queries
+only the outcomes allowed by its own traversal and budget. Random repetitions
+are averaged within each dataset by the original report code.
+
+New output directories contain:
+
+  RUN_IDENTITY.json                 exact source/runtime/case identity
+  configuration/protocol.json     selected-case copy of the comparison protocol
+  configuration/base_summary.json fresh numerical comparison from this run
+  base/tables/                     data, initial fits and weighted score tables
+  base/fits/                       base complete-mixture outcomes
+  base/summary.json                fresh base study summary
+  comparisons/plans/               fixed-score selections and fit requests
+  comparisons/fits/                additional complete-mixture outcomes
+  comparisons/adaptive/            greedy/FAB iterations and operation accounts
+  comparisons/cases/               paired method comparisons by case
+  comparisons/summary.json         complete case-level output
+  comparisons/comparison_report.json aggregated method and joint-K comparisons
+  REFIT_STATUS.json                completion or explicit stopping reason
+
+The base summary retains the original 488-task indexing so that source indices
+in the unchanged protocol remain meaningful. Tasks outside the selected public
+scope are marked missing, not populated from published results. Only the chosen
+406 cases (or a requested subset) enter the new comparison summary. The full
+historical manifest is retained as source provenance; only Faithful, Seeds and
+WDBC source data are bundled for these refitting commands.
+
+Output directories must be new. To resume the identical command after a clean
+interruption, add --resume. The wrapper verifies the source, runtime, case
+selection and orchestration identity. Completed numerical failures, deadlines
+and iteration caps are retained; they are not silently retried. An interrupted
+operation with a nonterminal checkpoint stops and requires explicit inspection.
+No command overwrites the published results. A completed workflow means every
+requested outcome was recorded; inspect its numerical failures and iteration
+caps before interpreting the results.
+
+IMPLEMENTATION AND SOURCE IDENTITY
+
+runtime/base contains the study runner, preprocessing, data generation, the
+fixed numerical settings and the study's FMVMM development version:
+
+  c40dc363f4651e62681bea5420507cebc4bb3b16
+
+FMVMM's original MIT licence is retained at
+runtime/base/native/fmvmm/LICENSE. This is the version used for the reported
+experiments, not a request to install the latest PyPI release.
+
+runtime/comparisons contains the authors' implementations of all comparators:
+
+  fixed_selection.py  cutoff rules, top-r, top-M and uniform random search
+  adaptive.py         greedy BIC family updating and BIC-guided beam search
+  fab.py              constrained, fixed-K FAB adaptation
+  worker.py           fitting/evaluation and cost-accounting orchestration
+  report.py           paired summaries and joint-K real-data selection
+  test_*.py           independent formula and behavioural checks
+
+These are authors' implementations, not official software from the cited method
+authors. The greedy method is a BIC-based family-update comparison, not a claim
+to implement every form of structural EM. FAB follows the fixed-K inner
+iteration of FABtwo in Fujimaki and Morinaga (2012), equations (11), (15),
+(17)-(19) and (21), with this study's bounded parameter domain, fixed component
+count within each run, stopping tolerance and cycle cap. No component-deletion
+step is used. FAB selects families and K by its own objective; BIC is evaluated
+afterward. EMDL was not implemented and is not included as an empirical method.
+The main article and supplementary material give the mathematical definitions
+and qualifications for these comparisons.
+
+runtime/SOURCES.json records each copied file's SHA-256, its original bundle
+and relative location. The FMVMM package code and all scientific fitting and
+comparison algorithms retain their original bytes. The only two changes to
+copied Python files replace a user-home fallback with an explicit
+FMVMM_REFERENCE_ROOT environment requirement in the two fmvmm_engine.py copies;
+the public wrapper supplies the bundled package location. Two metadata-only
+edits remove conversational authorization fields from the manifest and protocol.
+These four publication changes and their original hashes are recorded in the
+inventory; the scientific settings, counts, budgets and seeds are unchanged.
+
+The distributable runtime omits the original cluster wheel archive, Slurm/SSH
+configuration and unused upstream example/data directories. It is therefore
+not presented as byte-identical to the original cluster deployment. The
+original freeze hashes are retained as provenance. scripts/refit.py verifies
+the public inventory instead of the inaccessible cluster archive, then calls
+the unchanged numerical functions. The original comparison environment hook is
+replaced only to select these verified local paths. The comparison protocol
+for a new run points to that run's freshly computed base_summary.json; it never
+substitutes the published numerical comparison.
+
+Exact package versions, fixed seeds and the native smoke checks support
+reproducibility. Processor/BLAS differences and time limits can still affect
+floating-point trajectories or which fits finish before a deadline. Runtime
+costs depend on hardware. Refitting should be interpreted with the recorded
+qualification checks, failed attempts and finite numerical comparison scope,
+not as a guarantee of bit-for-bit timings or unrestricted global optima.

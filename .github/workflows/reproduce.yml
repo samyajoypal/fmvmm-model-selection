@@ -1,0 +1,29 @@
+name: Reproduce paper analyses
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install the study environment
+        run: python -m pip install -r requirements.txt
+      - name: Verify data and preprocessing
+        run: python data/verify_data.py
+      - name: Verify numerical sources and comparison tests
+        run: python scripts/refit.py test
+      - name: Regenerate paper figures and tables
+        run: python scripts/reproduce.py

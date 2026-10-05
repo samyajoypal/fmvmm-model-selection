@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "network_used": false,
+  "datasets": 3,
+  "distinct_splits": 12,
+  "real_fit_cases": 36,
+  "checks": [
+    {
+      "dataset": "faithful",
+      "split": "full",
+      "n_train": 272,
+      "n_test": 0,
+      "features": 2,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "faithful",
+      "split": "holdout_0",
+      "n_train": 217,
+      "n_test": 55,
+      "features": 2,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "faithful",
+      "split": "holdout_1",
+      "n_train": 217,
+      "n_test": 55,
+      "features": 2,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "faithful",
+      "split": "holdout_2",
+      "n_train": 217,
+      "n_test": 55,
+      "features": 2,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "seeds",
+      "split": "full",
+      "n_train": 210,
+      "n_test": 0,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "seeds",
+      "split": "holdout_0",
+      "n_train": 168,
+      "n_test": 42,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "seeds",
+      "split": "holdout_1",
+      "n_train": 168,
+      "n_test": 42,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "seeds",
+      "split": "holdout_2",
+      "n_train": 168,
+      "n_test": 42,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "wdbc",
+      "split": "full",
+      "n_train": 569,
+      "n_test": 0,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "wdbc",
+      "split": "holdout_0",
+      "n_train": 455,
+      "n_test": 114,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "wdbc",
+      "split": "holdout_1",
+      "n_train": 455,
+      "n_test": 114,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    },
+    {
+      "dataset": "wdbc",
+      "split": "holdout_2",
+      "n_train": 455,
+      "n_test": 114,
+      "features": 3,
+      "raw_csv_round_trip_exact": true,
+      "model_csv_round_trip_exact": true,
+      "indices_disjoint": true,
+      "all_rows_used": true
+    }
+  ],
+  "source_loader_sha256": "dcf940fb19c62d7a1f58dda633c43f81e7d49c2d3caa4d7154715464e4aa5462",
+  "paper_adapter_sha256": "ff06f82a4fb822379b05d926bd661b0bb17a818ec575b10102fa31b6995febf8"
+}

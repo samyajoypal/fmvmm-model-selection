@@ -1,0 +1,194 @@
+REPRODUCING THE PAPER'S NUMERICAL ANALYSIS
+
+Quick path
+----------
+From the repository root, run:
+
+    python scripts/reproduce.py
+
+This reads the saved numerical outputs in results/, checks their SHA-256
+hashes, recomputes the numerical summaries and produces seven figures (PDF and
+PNG) and all nineteen paper tables (CSV). It performs no model fitting and
+makes no network requests. It works from any checkout directory. Outputs go
+to build/figures/ and build/tables/. Run with --verify-only to check the input
+files without rendering anything.
+
+The quick path requires Python, NumPy, SciPy and Matplotlib. It was tested with
+Python 3.12.3, NumPy 2.4.6, SciPy 1.17.1 and Matplotlib 3.10.9. Publication PDFs
+may have different font rasterization or PDF metadata with other versions;
+the data values and analysis definitions remain the same. Saved fit timings
+come from the original execution, not from this short analysis command.
+
+This path reproduces the analysis of completed fits. It does not establish
+that independently rerunning numerical optimization on another machine will
+be bitwise identical. For data preparation and model fitting use the separate
+full-refit workflow described in the repository README.
+
+Files and provenance
+--------------------
+results/manifest.json records the SHA-256 of every compressed input, its
+uncompressed JSON payload, the original source file, and the exact packaging
+transformation. No numerical result was rounded, clipped, changed, or removed
+because of its performance. JSON whitespace was compacted and gzip timestamps
+were fixed at zero for deterministic packaging.
+
+comparisons.json.gz contains all 406 paper cases and their complete method
+summaries: 350 main simulations, 20 additional H3 simulations and 36 real-data
+analyses at fixed K. Every case has all five cutoffs. Alternative methods were
+run for 256 cases: 200 main K=3 simulations, the 20 additional H3 simulations
+and 36 real-data cases. Individual random-search repetitions remain separate.
+Statuses, failed-operation counts, capped adaptive outputs and signed BIC
+differences are retained. There is no success-only filtering of datasets.
+
+baseline.json.gz contains the same 406 tasks from the original screening and
+comparison study. Original task indices and numerical records are preserved.
+This is a documented task subset; aggregate counts for the wider execution
+were not copied because they would refer to tasks outside this package.
+
+protocol.json.gz contains all scientific fields of the comparison protocol;
+only its administrative authorization sentence was omitted. The protocol
+hash recorded inside each original result continues to refer to the original
+protocol bytes. manifest.json stores that original hash, so the numerical
+identity is verified without pretending that the edited metadata has the
+same byte hash.
+
+score_tables/ contains two exact score matrices, complete ranked catalogues,
+family assignments and retention flags used by the family-score heatmap.
+Execution details and fitted parameter arrays not used by that figure were
+omitted. The score values are unrounded. The script independently solves the
+assignment problem for every catalogue entry and verifies both assignments
+and screening flags. H5 replication 036 is an explicitly selected failure
+illustration, not a claim about a representative replication.
+
+The two *_expected.json.gz files contain previous independent audit summaries
+used as consistency checks. real_results.py does not use these files to pick
+models: it recomputes the real-data selections directly from comparisons.json.
+additional_fit_audit.json.gz records the complete status count of additional
+fixed fits, including numerical failures and deadlines.
+
+Scripts
+-------
+analysis/common.py provides gzip reading and deterministic CSV/JSON output.
+analysis/real_results.py selects across K=1,2,3 from the saved per-K outputs.
+    BIC methods minimize BIC. FAB maximizes its saved native objective.
+    Capped FAB outputs are unavailable for model selection, while their
+    computational work remains included. All 12 joint-K aggregates are
+    checked against the independent audit.
+analysis/baseline_figures.py regenerates the four baseline diagnostic figures
+    and validates the two score tables. Its statistical and plotting logic
+    follows the original paper script; only portable paths, gzip loading and
+    output locations have changed.
+analysis/comparison_figures.py regenerates the three comparison figures and
+    comparison_statistics.json. Its numerical and plotting logic follows the
+    original paper script, with portable paths and packaged-data lookup.
+analysis/paper_tables.py computes all paper tables from per-dataset outputs.
+    The family-name/parameter-count table and original data dimensions are
+    static design metadata, rather than estimated results. Other performance
+    columns are recalculated. An independent set of checks verifies the key
+    published counts, including the 312/350 original agreements, all five
+    K=3 cutoff agreement counts, 200/200 top-25 agreement, 14 greedy and 11 FAB
+    limits, 655 retained real-data fits, three complete FAB joint-K searches,
+    the large H5 loss, and the full additional-fit status count.
+
+Output inventory
+----------------
+The generated paper_table_inventory.json maps each CSV to its exact LaTeX
+label, input source and interpretation. Main tables are numbered 01--11;
+supplementary tables are numbered 01--08. These numbers match the manuscript
+and supplement accompanying this package. Every CSV contains full numerical
+precision; manuscript rounding is applied only for display. JSON-valued cells
+(such as family lists and status counts) are standard quoted CSV strings.
+
+case_method_outcomes.csv gives one row per fixed-K dataset and method run,
+including all 30 random repetitions. It is an audit export, not an additional
+paper table. comparison_statistics.json includes paired differences and
+Monte Carlo errors. real_audit.json records selected families, K availability
+and prediction measures. verification.json records the independent checks.
+The empirical distributions and score matrices behind the figures are also
+exported in manuscript_diagnostics_data.json.
+
+Column and statistical definitions
+---------------------------------
+setting/scenario: G3=Gaussian control; H3=ordinary heterogeneous; S3=skew and
+    robust; GH3=generalized hyperbolic; S4=four-component skew;
+    H4=four-component mixed; H5=five-component mixed. The final digit is K.
+block: main, increased overlap, unequal weights, or real-data sample type.
+n, p, K: training sample size, fitted dimension and component count.
+test_n/test_size: observations used only for evaluation.
+replications/datasets: independently generated training/test pairs within a
+    simulation setting. Real-data splits overlap and are not independent
+    replications of the application. Random repeats are not new datasets.
+reference_scope: exhaustive=every unordered family combination was attempted;
+    challengers=the explicitly defined partial comparison was attempted.
+    A numerical full search is not a proof of global likelihood optimality.
+available_combinations: binomial(13+K-1,K), with repetitions allowed.
+cutoff_multiplier: a in a*log(n), for a in {0,1,2,4,8}; logarithms are natural.
+method: cutoff_a, top_r_r (r families per component), top_m_M (M score-ranked
+    combinations), random_ca (budget of cutoff a), beam_wW_bB (beam width W,
+    budget B), greedy, or fab. A random suffix r00--r29 identifies one repeat.
+    All-MVN is included as specified by the protocol; top-M can therefore
+    request M+1 fits. Iterative methods do not share the fixed-fit-count
+    definition, so their mean_requested_fits cell is blank.
+mean_bic_difference/bic_difference/bic_loss: selected BIC minus the original
+    comparison-search BIC. Positive means worse training BIC; negative values
+    are retained. Adaptive starts can improve on the original fitted values.
+mean_bic_change_from_cutoff2/bic_change_from_cutoff2/mean_bic_change:
+    alternative BIC minus primary (2*log(n)) screening BIC on the same data.
+    Larger-component cutoff tables use these paired changes, because most
+    of their original comparison searches are partial.
+agreement: absolute BIC difference <= 1e-6.
+agreement_percent: 100 times the dataset-level agreement average.
+agreement_dataset_equivalents: sum of dataset-level agreement probabilities;
+    for deterministic methods this is an integer count. Random-repeat
+    probabilities are averaged within a dataset before this sum.
+bic_difference_at_most_2_percent / bic_difference_over_2_percent:
+    fraction satisfying the corresponding inequality against the original
+    comparison. Values below zero are included in the at-most-two category.
+wilson_lower_percent/wilson_upper_percent: 95% Wilson limits, calculated only
+    for the four main settings with a common full-search protocol. Blank
+    values in mixed full/partial settings are deliberate, not zero.
+median_retained/retained/mean_requested_fits: number of retained/requested
+    complete-mixture combinations. Initial mixture and weighted-family work
+    is additional and is included in the computational-work quantities.
+reduction_percent/median_reduction_percent: 100*(1-retained/available).
+accounted_seconds/accounted_work_ratio: recorded operation durations,
+    including shared initial and score-matrix work and failed operations.
+fitting_seconds/fitting_work_ratio: the narrower recorded fitting-operation
+    durations, with common preparation charged as specified in the protocol.
+    Work ratios are ratios of sums, not means of individual time ratios.
+    Baseline tables divide screened work by comparison work. Method/cutoff
+    tables divide alternative work by screening at 2*log(n). Neither measure
+    is an independently observed parallel elapsed-time speedup.
+mean_log_density_difference/test_log_density_difference: screened minus
+    comparison mean test log density in baseline tables; positive is better.
+    Densities for applications use the fitted standardized/PCA coordinates.
+mean_ari_difference: difference in adjusted Rand index; positive is better.
+mean_tv_difference: difference in posterior total-variation error after label
+    matching; negative is better. This measure is available in simulations.
+mcse_*: sample standard deviation of paired differences divided by sqrt(50)
+    in baseline setting tables. The four-setting aggregate in comparison
+    statistics uses fixed setting weights and within-setting variances.
+mean_log_density_difference_from_initial: screened minus the best accepted
+    initial model, selected using training BIC before heterogeneous fits.
+available_K/all_K_available: converged accepted K values, or number of joint-K
+    searches with an accepted output at all three requested K values.
+    FAB selects by its own objective; its capped K=3 runs are never silently
+    replaced by BIC-based selections. Aggregate FAB BIC cells in the main
+    table are blank because 9 of its 12 intended joint-K searches are
+    incomplete. Dataset-specific diagnostics remain available.
+status/status_counts: original operation outcomes. A greedy round_cap leaves
+    its last accepted model available but does not satisfy its stopping rule;
+    a FAB iteration_cap is not a converged output. Deadline and unqualified
+    fits count towards work. All datasets remain in outcome reporting.
+Missing numeric cells: unavailable, inapplicable, or intentionally not pooled
+    as described above; never interpret an empty cell as zero.
+
+Interpretation safeguards
+-------------------------
+The common primary cutoff remains 2*log(n). The cutoff sweep and other methods
+reuse the completed datasets; they are paired computational comparisons, not
+fresh-data confirmation. Random searches are averaged within each dataset.
+Full and partial comparison searches remain distinct. Large losses and
+iteration limits remain visible. Top-M uses the same score matrix and can be
+competitive with the cutoff rule. FAB is the specified constrained fixed-K
+adaptation, not a claim of using an official generic FAB implementation.
